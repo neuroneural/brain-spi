@@ -1,16 +1,8 @@
-# adm-proj
+# brain-spi
 Comparison of pairwise statistics for connectivity estimation
 
-# project outline 
-Find statistically important group differences in Pearson-estimated connectivity
-- Write a general setup for the experiments
-- Find important features using stattests 
-- Train classifiers, inspect the features that they found important
-  
-Add other techniques for signal comparisons
-- Run the same analysis on this new data, compare results
-- Find features that are consistently important
-  
-Validate
-- Rerun the analysis on subsets of my data, see if results survive permutation tests
-- Try more classifiers/stattests
+# What's in here
+The code in this repo allows to
+- derive functional network connectivity (FNC) matrices from fMRI multivariate time seires with different statistics for pairwise statistics (SPIs)
+- derive significant group differences in FNC matrices using Student's t-test and Random Forest (RF) classifier
+- Aggregate these differences across SPIs/methods to obtain consensus importance matrix
