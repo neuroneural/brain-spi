@@ -28,12 +28,6 @@ pip install -e .            # from the repo root
 # core deps: numpy, scipy, scikit-learn, matplotlib, pandas, pyyaml, pyspi
 ```
 
-> **Note on `pyspi` + setuptools.** pyspi's `.statistics.causal` module imports
-> `pkg_resources`, which was removed in **setuptools ≥ 81**. `brain_spi` works around
-> this by computing only the SPIs you ask for (so the broken module is never
-> imported) and warns once if it is unavailable. To use the causal SPIs, run
-> `pip install "setuptools<81"`.
-
 ## Quickstart
 
 ```python
@@ -73,7 +67,8 @@ it's easy to spot and drop slow ones.
 ### Robustness
 
 ```python
-boot = result.bootstrap(n=20, frac=0.66)     # subject resampling
+boot = result.bootstrap(n=20, frac=0.66)     # 20 subject-resampled cross-SPI AND maps
+boot.mean                                     # average of the 20 (resampling-smoothed aggregate)
 boot.survival_rate()                          # how often each edge is flagged (reproducibility)
 
 null = result.label_shuffle(n=100)            # permutation null
@@ -97,18 +92,16 @@ result = brain_spi.load_npz('result.npz')   # or load_pickle(...)
 The `.npz` is a flat collection of arrays with a self-describing `README` key inside,
 so collaborators without `brain_spi` can still `np.load(path)` and read everything.
 
-## Example notebooks
+## Example notebook
 
-- [`examples/abide_cobre_quickstart.ipynb`](examples/abide_cobre_quickstart.ipynb) —
-  end-to-end on two public datasets (ABIDE, COBRE): Part 1 computes SPIs and inspects
-  their mean connectivity; Part 2 runs the significant-differences pipeline. The
-  datasets download automatically via [`examples/datasets.py`](examples/datasets.py).
-- [`examples/fbirn_quickstart.ipynb`](examples/fbirn_quickstart.ipynb) — the FBIRN
-  walkthrough with the PCC baseline.
+[`examples/abide_cobre_quickstart.ipynb`](examples/abide_cobre_quickstart.ipynb) runs
+end-to-end on public data — ABIDE (controls vs. autism) by default, or COBRE
+(schizophrenia) via a one-line switch. Part 1 computes SPIs and inspects their mean
+connectivity; Part 2 runs the significant-differences pipeline. The datasets download
+automatically via [`examples/datasets.py`](examples/datasets.py), and it runs on Colab
+as-is.
 
-## Scope (v0)
-
-Two-class comparisons only; Welch's t-test with Bonferroni correction; matched-density
-RF threshold. Multi-class, FDR, and network-level statistics are out of scope for now.
+The original exploratory notebooks (and the FBIRN walkthrough, which needs non-public
+data) live on the [`legacy`](../../tree/legacy) branch.
 
 See [`PLAN.md`](PLAN.md) for the full design and methodology.
