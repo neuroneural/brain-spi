@@ -41,6 +41,7 @@ DATASETS: dict[str, dict] = {
             "data": (f"{_MILC}/Data/ABIDE1_AllData.h5", "ABIDE1_AllData.h5"),
             "labels": (f"{_MILC}/IndicesAndLabels/labels_ABIDE1.csv", "labels_ABIDE1.csv"),
             "ica": (f"{_INTRO}/ICA_correct_order.csv", "ICA_correct_order.csv"),
+            "domains": (f"{_INTRO}/ICN_coordinates.csv", "ICN_coordinates.csv"),
         },
         "h5_key": "ABIDE1_dataset",
         "group_names": ("control", "autism"),
@@ -50,6 +51,7 @@ DATASETS: dict[str, dict] = {
             "data": (f"{_MILC}/Data/COBRE_AllData.h5", "COBRE_AllData.h5"),
             "labels": (f"{_MILC}/IndicesAndLabels/labels_COBRE.csv", "labels_COBRE.csv"),
             "ica": (f"{_INTRO}/ICA_correct_order.csv", "ICA_correct_order.csv"),
+            "domains": (f"{_INTRO}/ICN_coordinates.csv", "ICN_coordinates.csv"),
         },
         "h5_key": "COBRE_dataset",
         "group_names": ("control", "schizophrenia"),
@@ -150,3 +152,23 @@ def load(
         data, labels = data[keep], labels[keep]
 
     return data, labels, cfg["group_names"]
+
+
+def domain_spec(dataset: str, root: Path | str = DATA_ROOT):
+    """
+    Build a brain_spi ``DomainSpec`` for the 53 ICN components from the
+    downloaded ``ICN_coordinates.csv`` (run :func:`download` first).
+
+    The component order matches the ``ICA_correct_order`` reindexing applied in
+    :func:`load`, so the domain bands line up with the connectivity matrices.
+    """
+    import brain_spi.domains as domains
+
+    if dataset not in DATASETS:
+        raise ValueError(f"Unknown dataset '{dataset}'. Choose from {list(DATASETS)}.")
+    csv = Path(root) / dataset / DATASETS[dataset]["files"]["domains"][1]
+    if not csv.exists():
+        raise FileNotFoundError(
+            f"{csv.name} not found for '{dataset}'. Run download('{dataset}') first."
+        )
+    return domains.from_csv(csv, name_col="Domain")
