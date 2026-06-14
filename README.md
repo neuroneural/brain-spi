@@ -8,7 +8,7 @@ library. It lets you run the full pipeline in one call and then inspect either t
 aggregated cross-SPI result or any individual SPI's intermediate artifacts.
 
 **Try it now in Colab** (no install, nothing to clone):
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1_NtR61x_qjuvvB8bRBlJ3cLzu1gi3--q?usp=sharing)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/neuroneural/brain-spi/blob/main/examples/colab_quickstart.ipynb)
 
 ## What it does
 
@@ -104,7 +104,7 @@ automatically via [`examples/datasets.py`](examples/datasets.py).
 
 - [`examples/colab_quickstart.ipynb`](examples/colab_quickstart.ipynb) — for Colab
   (installs from GitHub, nothing to clone):
-  [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1_NtR61x_qjuvvB8bRBlJ3cLzu1gi3--q?usp=sharing)
+  [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/neuroneural/brain-spi/blob/main/examples/colab_quickstart.ipynb)
 - [`examples/abide_cobre_quickstart.ipynb`](examples/abide_cobre_quickstart.ipynb) — for
   a local clone of the repo.
 
