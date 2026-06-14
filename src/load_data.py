@@ -4,8 +4,8 @@ import numpy as np
 import pandas as pd
 
 def load_data(
-    file_path: str = "/Users/ppopov1/_archive/2026 OHBM (SPIs and holo)/adm-proj/data/fbirn_ica/fbirn_data.npz",
-    demo_path: str = "/Users/ppopov1/_archive/2026 OHBM (SPIs and holo)/adm-proj/data/fbirn_ica/demographics_legend.csv"
+    file_path: str = "/Users/ppopov1/_archive/2026_OHBM/adm-proj/data/fbirn_ica/fbirn_data.npz",
+    demo_path: str = "/Users/ppopov1/_archive/2026_OHBM/adm-proj/data/fbirn_ica/demographics_legend.csv"
     ):
     """
     Loads FBIRN data saved in npz archive.

@@ -209,3 +209,15 @@ __marimo__/
 
 data/
 pics/
+# --- brain_spi project additions ---
+# macOS cruft
+.DS_Store
+
+# Saved pipeline results (large; regenerate or share out-of-band)
+*.npz
+
+# Example datasets downloaded by examples/datasets.py (not shipped)
+examples/datasets_data/
+
+# pyspi on-disk compute cache (if ever placed in-tree)
+.cache/

@@ -1,0 +1,11 @@
+# Curated 9-SPI default set — one representative per family, vetted against FBIRN.
+spis:
+  - cov_GraphicalLassoCV
+  - prec_GraphicalLassoCV
+  - spearmanr
+  - kendalltau
+  - xcorr_mean_sig-True
+  - dcorr
+  - mgc
+  - hsic
+  - pec
