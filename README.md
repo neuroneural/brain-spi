@@ -1,5 +1,7 @@
 # brain-spi
 
+![Mean Kendall-tau connectivity (left) and its significant-difference AND mask (right)](docs/header.png)
+
 Comparison of pairwise statistics for fMRI connectivity estimation, and a
 pipeline for finding group differences across them.
 
@@ -95,20 +97,14 @@ result = brain_spi.load_npz('result.npz')   # or load_pickle(...)
 The `.npz` is a flat collection of arrays with a self-describing `README` key inside,
 so collaborators without `brain_spi` can still `np.load(path)` and read everything.
 
-## Example notebooks
+## Example notebook
 
-Both run end-to-end on public data — ABIDE (controls vs. autism) by default, or COBRE
+[`examples/colab_quickstart.ipynb`](examples/colab_quickstart.ipynb)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/neuroneural/brain-spi/blob/main/examples/colab_quickstart.ipynb)
+runs end-to-end on public data — ABIDE (controls vs. autism) by default, or COBRE
 (schizophrenia) via a one-line switch. Part 1 computes SPIs and inspects their mean
 connectivity; Part 2 runs the significant-differences pipeline. Datasets download
 automatically via [`examples/datasets.py`](examples/datasets.py).
 
-- [`examples/colab_quickstart.ipynb`](examples/colab_quickstart.ipynb) — for Colab
-  (installs from GitHub, nothing to clone):
-  [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/neuroneural/brain-spi/blob/main/examples/colab_quickstart.ipynb)
-- [`examples/abide_cobre_quickstart.ipynb`](examples/abide_cobre_quickstart.ipynb) — for
-  a local clone of the repo.
-
 The original exploratory notebooks (and the FBIRN walkthrough, which needs non-public
 data) live on the [`legacy`](../../tree/legacy) branch.
-
-See [`PLAN.md`](PLAN.md) for the full design and methodology.
