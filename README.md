@@ -1,6 +1,6 @@
 # brain-spi
 
-![Mean Kendall-tau connectivity (left) and its significant-difference AND mask (right)](docs/header.png)
+![Mean Kendall-tau connectivity (left) and its significant-difference AND mask (right)](https://raw.githubusercontent.com/neuroneural/brain-spi/main/docs/header.png)
 
 Comparison of pairwise statistics for fMRI connectivity estimation, and a
 pipeline for finding group differences across them.
@@ -100,9 +100,9 @@ The `.npz` is a flat collection of arrays with a self-describing `README` key in
 
 ## Example notebook
 
-[`examples/colab_quickstart.ipynb`](examples/colab_quickstart.ipynb)
+[`examples/colab_quickstart.ipynb`](https://github.com/neuroneural/brain-spi/blob/main/examples/colab_quickstart.ipynb)
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/neuroneural/brain-spi/blob/main/examples/colab_quickstart.ipynb)
 runs end-to-end on public data — ABIDE (controls vs. autism) by default, or COBRE
 (schizophrenia) via a one-line switch. Part 1 computes SPIs and inspects their mean
 connectivity; Part 2 runs the significant-differences pipeline. Datasets download
-automatically via [`examples/datasets.py`](examples/datasets.py).
+automatically via [`examples/datasets.py`](https://github.com/neuroneural/brain-spi/blob/main/examples/datasets.py).
