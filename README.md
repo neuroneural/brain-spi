@@ -28,12 +28,13 @@ aggregated cross-SPI result or any individual SPI's intermediate artifacts.
 
 ## Install
 
-I recommend installing `brains-spi` in a separate python enviroment: `brains-spi` relies on `pyspi`, and it relies on `numpy < 2`, which can conflict with other packages.
-
 ```bash
-pip install -e .            # from the repo root
-# core deps: numpy, scipy, scikit-learn, matplotlib, pandas, pyyaml, pyspi
+pip install brain-spi
 ```
+
+I recommend a separate Python environment: `brain-spi` relies on `pyspi`, which
+requires `numpy < 2` and can conflict with other packages. For development, clone
+the repo and `pip install -e .` instead.
 
 ## Quickstart
 
