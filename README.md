@@ -28,6 +28,8 @@ aggregated cross-SPI result or any individual SPI's intermediate artifacts.
 
 ## Install
 
+I recommend installing `brains-spi` in a separate python enviroment: `brains-spi` relies on `pyspi`, and it relies on `numpy < 2`, which can conflict with other packages.
+
 ```bash
 pip install -e .            # from the repo root
 # core deps: numpy, scipy, scikit-learn, matplotlib, pandas, pyyaml, pyspi
@@ -94,8 +96,7 @@ import brain_spi
 result = brain_spi.load_npz('result.npz')   # or load_pickle(...)
 ```
 
-The `.npz` is a flat collection of arrays with a self-describing `README` key inside,
-so collaborators without `brain_spi` can still `np.load(path)` and read everything.
+The `.npz` is a flat collection of arrays with a self-describing `README` key inside.
 
 ## Example notebook
 
@@ -105,6 +106,3 @@ runs end-to-end on public data — ABIDE (controls vs. autism) by default, or CO
 (schizophrenia) via a one-line switch. Part 1 computes SPIs and inspects their mean
 connectivity; Part 2 runs the significant-differences pipeline. Datasets download
 automatically via [`examples/datasets.py`](examples/datasets.py).
-
-The original exploratory notebooks (and the FBIRN walkthrough, which needs non-public
-data) live on the [`legacy`](../../tree/legacy) branch.
